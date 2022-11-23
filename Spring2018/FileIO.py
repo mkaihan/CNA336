@@ -19,7 +19,7 @@ def main():
     #Doping LOCTIONS table if already exists.
     cursor.execute("DROP TABLE IF EXISTS LOCATIONS")  #Dropping and creating locations table, and add in the columns from the CSV.
 
-	#Creating table as per requirement  I have put all fields as NOT NULL you can omit it if not required.
+	#Creating table as per requirement 
     try:
         conn.execute('''CREATE TABLE LOCATIONS
 				 (Lab_name              TEXT    NOT NULL,
@@ -47,9 +47,6 @@ def main():
         for row in reader:	
             cursor.execute("INSERT INTO LOCATIONS VALUES (?, ?, ?, ?, ?, ?, ?, ?)",	row )
 
-    # For printing the entered values in the Sqllite3 Database.
-    #cursor.execute ("select * from LOCATIONS")
-    #print(cursor.fetchall())
     conn.close() # closes connection to database
 
 if __name__ == '__main__':
